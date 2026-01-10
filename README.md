@@ -44,6 +44,10 @@ This is a web application for calculating distances between KACC customers and P
 
 5. The application will be accessible at `http://your-server-ip:9595`
 
+### Authentication
+
+- Username: `user`
+- Password: `Dino202545`
 
 ### Firewall Configuration
 
@@ -84,3 +88,46 @@ For production use, you may want to run the application as a systemd service:
    sudo systemctl enable pos-calculator
    sudo systemctl start pos-calculator
    ```
+
+## Running with Docker
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Running the Application
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd n8n
+   ```
+
+2. Build and run the container:
+   ```bash
+   docker-compose up -d
+   ```
+
+3. The application will be accessible at `http://your-server-ip:9595`
+
+4. To stop the application:
+   ```bash
+   docker-compose down
+   ```
+
+5. To view logs:
+   ```bash
+   docker-compose logs -f
+   ```
+
+### Building the Docker Image
+
+To build the image manually:
+```bash
+docker build -t pos-distance-app .
+```
+
+To run the built image:
+```bash
+docker run -d -p 9595:9595 --name pos-distance-app pos-distance-app
